@@ -120,6 +120,15 @@ class SignUpAPI:
         cursor.close()
         cnx.close()
 
+    @cherrypy.expose
+    def salt_generate(self):  # This will generage a 16-character base-62 salt
+        alphabet = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        salt = []
+        for i in range(16):
+            salt.append(random.choice(alphabet))
+
+            return "".join(salt)
+
 
 @cherrypy.expose
 class LogInAPI:
