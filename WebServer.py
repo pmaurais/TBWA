@@ -26,12 +26,12 @@ class WebApp(object):
 
         if rDate =='-1':
             r = s.get('https://api.sandbox.amadeus.com/v1.2/flights/low-fare-search',
-                       params={'apikey': '6muJDEG6uJCN9Un0FCLC9s1xDtyHzmGM', 'origin': src, 'destination': dest,
+                       params={'apikey': 'wwZHtzZAUlvbKOJwP5Fn1w5HWXydTTIs ', 'origin': src, 'destination': dest,
                                'departure_date': dDate,'adults':numAdult})
             print(r.text)
         else:
             r=s.get('https://api.sandbox.amadeus.com/v1.2/flights/low-fare-search',
-                       params={'apikey': '6muJDEG6uJCN9Un0FCLC9s1xDtyHzmGM', 'origin': src, 'destination': dest,
+                       params={'apikey': 'wwZHtzZAUlvbKOJwP5Fn1w5HWXydTTIs ', 'origin': src, 'destination': dest,
                                'departure_date': dDate,'return_date':rDate,'adults':numAdult})
             print(r.text)
 
@@ -121,7 +121,6 @@ class SignUpAPI:
         cursor.close()
         cnx.close()
 
-    @cherrypy.expose
     def salt_generate(self):  # This will generage a 16-character base-62 salt
         alphabet = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
         salt = []
