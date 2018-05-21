@@ -42,7 +42,7 @@ class WebApp(object):
 
         s=requests.session()
         r = s.get('https://api.sandbox.amadeus.com/v1.2/hotels/search-airport',
-                  params={'apikey': '6muJDEG6uJCN9Un0FCLC9s1xDtyHzmGM', 'location': loc, 'check_in': inDate,
+                  params={'apikey': 'wwZHtzZAUlvbKOJwP5Fn1w5HWXydTTIs', 'location': loc, 'check_in': inDate,
                           'check_out': outDate})
 
         print(r.text)
