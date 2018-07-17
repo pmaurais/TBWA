@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ternbooking</title>
+
+    <link type="text/css" rel="stylesheet" href="/html/flights/style/index.css">
+    <link type="text/css" rel="stylesheet" href="/html/common/javascript/lib/jquery-ui-1.12.1.custom/jquery-ui.min.css">
+    <script type="text/javascript" src="/html/common/javascript/lib/jQuery/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="/html/common/javascript/lib/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/html/common/javascript/lib/jQueryValidate/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="/html/common/javascript/common.js"></script>
+    <script type="text/javascript" src="/html/flights/javascript/index.js"></script>
+</head>
+<body>
+<div id="j_header">
+    <div class="nav">
+        <ul>
+            <li class="has-float-panel current" user-data-type="flights">
+                <span>Flights</span>
+                <div class="float-panel flights">
+                    <form id="j_flights_form" action="/flights" method="post" autocomplete="off">
+                        <div class="form-item left">
+                            <label for="j_item_from">Flights from:</label>
+                            <input id="j_item_from" name="from" type="text" placeholder="City or Airport" required/>
+                        </div>
+                        <div class="form-item right">
+                            <label for="j_item_to">To:</label>
+                            <input id="j_item_to" name="to" type="text" placeholder="City or Airport" required/>
+                        </div>
+                        <div class="form-item left">
+                            <label for="j_item_departing">Departing:</label>
+                            <input id="j_item_departing" name="departing" class="show-for-date" type="text"
+                                   placeholder="Choose Date"/>
+                            <img src="/html/common/images/icon_date.png"/>
+                        </div>
+                        <div class="form-item right">
+                            <label for="j_item_returning">Returning:</label>
+                            <input id="j_item_returning" name="returning" class="show-for-date" type="text"
+                                   placeholder="Choose Date"/>
+                            <img src="/html/common/images/icon_date.png"/>
+                        </div>
+                        <div class="form-item left">
+                            <label for="j_item_flights_adult">Adult:</label>
+                            <select id="j_item_flights_adult" name="flights_adult">
+                                <option value="0" selected="selected">0</option>
+                                <option value="1">1</option>
+                                <option value="2">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                            </select>
+                        </div>
+                        <div class="form-item right">
+                            <label for="j_item_flights_child">Child:</label>
+                            <select id="j_item_flights_child" name="flights_child">
+                                <option value="0" selected="selected">0</option>
+                                <option value="1">1</option>
+                                <option value="2">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                            </select>
+                        </div>
+                        <div class="button-container">
+                            <input type="submit" value="SEARCH"/>
+                        </div>
+                    </form>
+                </div>
+            </li>
+            <li class="has-float-panel" user-data-type="hotels">
+                <span>Hotels</span>
+                <div class="float-panel hotels">
+                    <form id="j_hotels_form" action="/hotels" method="post" autocomplete="off">
+                        <div class="form-item line">
+                            <label for="j_item_hotel">City, Hotel or Area:</label>
+                            <input id="j_item_hotel" name="hotel" type="text" placeholder="City, Hotel or Area"
+                                   required/>
+                        </div>
+                        <div class="form-item left">
+                            <label for="j_item_check_in">Check-in:</label>
+                            <input id="j_item_check_in" name="check_in" class="show-for-date" type="text"
+                                   placeholder="Choose Date"/>
+                            <img src="/html/common/images/icon_date.png"/>
+                        </div>
+                        <div class="form-item right">
+                            <label for="j_item_check_out">check-out:</label>
+                            <input id="j_item_check_out" name="check_out" class="show-for-date" type="text"
+                                   placeholder="Choose Date"/>
+                            <img src="/html/common/images/icon_date.png"/>
+                        </div>
+                        <div class="form-item left">
+                            <label for="j_item_hotel_adult">Adult:</label>
+                            <select id="j_item_hotel_adult" name="hotel_adult">
+                                <option value="0" selected="selected">0</option>
+                                <option value="1">1</option>
+                                <option value="2">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                            </select>
+                        </div>
+                        <div class="form-item right">
+                            <label for="j_item_hotel_child">Child:</label>
+                            <select id="j_item_hotel_child" name="hotel_child">
+                                <option value="0" selected="selected">0</option>
+                                <option value="1">1</option>
+                                <option value="2">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                            </select>
+                        </div>
+                        <div class="form-item left">
+                            <label for="j_item_room">Room:</label>
+                            <select id="j_item_room" name="room">
+                                <option value="0" selected="selected">0</option>
+                                <option value="1">1</option>
+                                <option value="2">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                            </select>
+                        </div>
+                        <div class="form-item right">
+                            <label for="j_item_add_room">Add Room:</label>
+                            <select id="j_item_add_room" name="add_room">
+                                <option value="0" selected="selected">0</option>
+                                <option value="1">1</option>
+                                <option value="2">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                            </select>
+                        </div>
+                        <div class="button-container">
+                            <input type="submit" value="SEARCH"/>
+                        </div>
+                    </form>
+                </div>
+            </li>
+            <li class="to-jump-link" href="/favorites" target="_blank">
+                <span>Favorites</span>
+            </li>
+            <li class="to-jump-link" href="/itinerary" target="_self">
+                <span>Itinerary</span>
+            </li>
+        </ul>
+    </div>
+    <img src="/html/common/images/logo.png" class="logo"/>
+    <div class="login">
+        <!-- <a id="j_register" href="#">
+            <img src="../common/images/icon_user.png" />
+            <span>Create an Account</span>
+        </a> -->
+        <a id="j_login" class="has-float-panel" href="javascript: void( 0 )" user-data-type="login">
+            <span id="username">Log In</span>
+
+        </a>
+    </div>
+</div>
+<div id="j_content">
+    <form id="j_hidden_query_form" action="" method="post">
+        <input id="j_hidden_price" name="price" type="hidden" value="[ 499, 799, 1199, 3000 ]"/>
+        <input id="j_hidden_refine" name="refine" type="hidden" value='[ "NonStop", "1Stop", "2Stops" ]'/>
+        <input id="j_hidden_fare" name="fare" type="hidden" value='[ "NonRefundable" ]'/>
+        <input id="j_hidden_airlines" name="airlines" type="hidden" value='[ "AmericanAirlines", "VirginAtlantic" ]'/>
+
+        <input id="j_hidden_airline_sort" name="airlineSort" type="hidden" value="AZ"/>
+        <input id="j_hidden_class_sort" name="classSort" type="hidden" value="HighLow"/>
+        <input id="j_hidden_price_sort" name="priceSort" type="hidden" value=""/>
+        <input id="j_hidden_recommended_sort" name="recommendedSort" type="hidden" value="OthersRecommend"/>
+
+        <input id="j_hidden_total_sum" name="totalSum" type="hidden" value="37"/>
+        <input id="j_hidden_page_size" name="pageSize" type="hidden" value="4"/>
+        <input id="j_hidden_current_page" name="currentPage" type="hidden" value="7"/>
+    </form>
+    <div class="search-result-container">
+        <div class="left">
+            <div class="resule-count">
+                <img class="search" src="/html/common/images/icon_search.png"/>
+                <span>66 results found.</span>
+                <a href="#"><img src="/html/common/images/icon_right.png"/></a>
+            </div>
+            <ul>
+                <li id="j_price_range_container">
+                    <div class="title">
+                            <span>
+                                Price Range
+                            </span>
+                        <img src="/html/common/images/icon_down.png"/>
+                    </div>
+                    <div class="content">
+                        <div class="show-range-container">
+                            <span class="min"></span>
+                            <span class="choice-low"></span>
+                            <span class="max"></span>
+                            <span class="choice-high"></span>
+                        </div>
+                        <div id="j_price_range_slider"></div>
+                    </div>
+                </li>
+                <li id="j_refine_results_container" class="checkbox-container">
+                    <div class="title">
+                            <span>
+                                Refine Results
+                            </span>
+                        <img src="/html/common/images/icon_down.png"/>
+                    </div>
+                    <div class="content">
+                        <div class="item">
+                            <input id="j_refine_results_NonStop" type="checkbox" value="NonStop"/>
+                            <label for="j_refine_results_NonStop">
+                                <span class="text">Non-Stop</span>
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input id="j_refine_results_1Stop" type="checkbox" value="1Stop"/>
+                            <label for="j_refine_results_1Stop">
+                                <span class="text">1 Stop</span>
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input id="j_refine_results_2Stops" type="checkbox" value="2Stops"/>
+                            <label for="j_refine_results_2Stops">
+                                <span class="text">2+ Stops</span>
+                            </label>
+                        </div>
+                    </div>
+                </li>
+                <li id="j_fare_type_container" class="checkbox-container">
+                    <div class="title">
+                            <span>
+                                Fare Type
+                            </span>
+                        <img src="/html/common/images/icon_down.png"/>
+                    </div>
+                    <div class="content">
+                        <div class="item">
+                            <input id="j_fare_type_Refundable" type="checkbox" value="Refundable"/>
+                            <label for="j_fare_type_Refundable">
+                                <span class="text">Refundable</span>
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input id="j_fare_type_NonRefundable" type="checkbox" value="NonRefundable"/>
+                            <label for="j_fare_type_NonRefundable">
+                                <span class="text">Non Refundable</span>
+                            </label>
+                        </div>
+                    </div>
+                </li>
+                <li id="j_airlines_container" class="checkbox-container">
+                    <div class="title">
+                            <span>
+                                Airlines
+                            </span>
+                        <img src="/html/common/images/icon_down.png"/>
+                    </div>
+                    <div class="content">
+                        <div class="item">
+                            <input id="j_airlines_AmericanAirlines" type="checkbox" value="AmericanAirlines"/>
+                            <label for="j_airlines_AmericanAirlines">
+                                <span class="text">American Airlines</span>
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input id="j_airlines_BritishAirways" type="checkbox" value="BritishAirways"/>
+                            <label for="j_airlines_BritishAirways">
+                                <span class="text">British Airways</span>
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input id="j_airlines_Emirates" type="checkbox" value="Emirates"/>
+                            <label for="j_airlines_Emirates">
+                                <span class="text">Emirates</span>
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input id="j_airlines_DeltaAirlines" type="checkbox" value="DeltaAirlines"/>
+                            <label for="j_airlines_DeltaAirlines">
+                                <span class="text">Delta Airlines</span>
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input id="j_airlines_QatarAirways" type="checkbox" value="QatarAirways"/>
+                            <label for="j_airlines_QatarAirways">
+                                <span class="text">Qatar Airways</span>
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input id="j_airlines_VirginAtlantic" type="checkbox" value="VirginAtlantic"/>
+                            <label for="j_airlines_VirginAtlantic">
+                                <span class="text">Virgin Atlantic</span>
+                            </label>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="right">
+            <div class="sort-by-container">
+                <label>Sort by:</label>
+                <select id="j_airline_sort">
+                    <option value="" selected="selected">Airline</option>
+                    <option value="AZ">A - Z</option>
+                    <option value="ZA">Z - A</option>
+                </select>
+                <select id="j_class_sort">
+                    <option value="" selected="selected">Class</option>
+                    <option value="LowHigh">Low - High</option>
+                    <option value="HighLow">High - Low</option>
+                </select>
+                <select id="j_price_sort">
+                    <option value="" selected="selected">Price</option>
+                    <option value="HighLow">High - Low</option>
+                    <option value="LowHigh">Low - High</option>
+                </select>
+                <select id="j_recommended_sort">
+                    <option value="" selected="selected">Recommended</option>
+                    <option value="RecommendOthers">Recommend - Others</option>
+                    <option value="OthersRecommend">Others - Recommend</option>
+                </select>
+            </div>
+            <div class="result-table-container">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Airline</th>
+                        <th>Departure</th>
+                        <th>Duration</th>
+                        <th>Arrival</th>
+                        <th>Price</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <script>
+                                function heartChange (elem) {
+                                    if(document.getElementById(elem.id).src.includes("/common/images/icon_heart_gray.png")){
+                                        document.getElementById(elem.id).src='/html/common/images/icon_heart_red.png';
+                                    } else{
+                                        document.getElementById(elem.id).src="/html/common/images/icon_heart_gray.png";
+                                    }
+
+                                }
+
+                    </script>
+
+                    replace
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="page-container">
+                <a id="j_previous">
+                    <i></i>
+                    <span>Previous</span>
+                </a>
+                <div class="page-number">
+                </div>
+                <a id="j_next">
+                    <span>Next</span>
+                    <i></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="j_footer">
+    <p class="left">
+        <a href="#" target="_blank">Contact Us</a>
+        <a href="#" target="_blank">Help</a>
+    </p>
+    <p class="right">
+        <span>Copyright TernBooking 2017</span>
+    </p>
+</div>
+</body>
+</html>

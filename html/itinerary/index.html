@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ternbooking</title>
+
+    <link type="text/css" rel="stylesheet" href="./style/index.css">
+    <link type="text/css" rel="stylesheet" href="../common/javascript/lib/jquery-ui-1.12.1.custom/jquery-ui.min.css">
+    <script type="text/javascript" src="../common/javascript/lib/jQuery/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="../common/javascript/lib/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../common/javascript/lib/jQueryValidate/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="../common/javascript/common.js"></script>
+    <script type="text/javascript" src="./javascript/index.js"></script>
+</head>
+<body>
+    <div id="j_header">
+        <div class="nav">
+            <ul>
+                <li class="has-float-panel" user-data-type="flights">
+                    <span>Flights</span>
+                    <div class="float-panel flights">
+                        <form id="j_flights_form" action="www.ternbooking.com/flights" method="post" autocomplete="off">
+                            <div class="form-item left">
+                                <label for="j_item_from">Flights from:</label>
+                                <input id="j_item_from" name="from" type="text" placeholder="City or Airport" required />
+                            </div><div class="form-item right">
+                                <label for="j_item_to">To:</label>
+                                <input id="j_item_to" name="to" type="text" placeholder="City or Airport" required />
+                            </div>
+                            <div class="form-item left">
+                                <label for="j_item_departing">Departing:</label>
+                                <input id="j_item_departing" name="departing" class="show-for-date" type="text" placeholder="Choose Date" />
+                                <img src="../common/images/icon_date.png"/>
+                            </div><div class="form-item right">
+                                <label for="j_item_returning">Returning:</label>
+                                <input id="j_item_returning" name="returning" class="show-for-date" type="text" placeholder="Choose Date" />
+                                <img src="../common/images/icon_date.png"/>
+                            </div>
+                            <div class="form-item left">
+                                <label for="j_item_flights_adult">Adult:</label>
+                                <select id="j_item_flights_adult" name="flights_adult">
+                                    <option value="0" selected="selected">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                </select>
+                            </div><div class="form-item right">
+                                <label for="j_item_flights_child">Child:</label>
+                                <select id="j_item_flights_child" name="flights_child">
+                                    <option value="0" selected="selected">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                </select>
+                            </div>
+                            <div class="button-container">
+                                <input type="submit" value="SEARCH" />
+                            </div>
+                        </form>
+                    </div>
+                </li>
+                <li class="has-float-panel" user-data-type="hotels">
+                    <span>Hotels</span>
+                    <div class="float-panel hotels">
+                        <form id="j_hotels_form" action="www.ternbooking.com/hotels" method="post" autocomplete="off">
+                            <div class="form-item line">
+                                <label for="j_item_hotel">City, Hotel or Area:</label>
+                                <input id="j_item_hotel" name="hotel" type="text" placeholder="City, Hotel or Area" required />
+                            </div>
+                            <div class="form-item left">
+                                <label for="j_item_check_in">Check-in:</label>
+                                <input id="j_item_check_in" name="check_in" class="show-for-date" type="text" placeholder="Choose Date" />
+                                <img src="../common/images/icon_date.png"/>
+                            </div><div class="form-item right">
+                                <label for="j_item_check_out">check-out:</label>
+                                <input id="j_item_check_out" name="check_out" class="show-for-date" type="text" placeholder="Choose Date" />
+                                <img src="../common/images/icon_date.png"/>
+                            </div>
+                            <div class="form-item left">
+                                <label for="j_item_hotel_adult">Adult:</label>
+                                <select id="j_item_hotel_adult" name="hotel_adult">
+                                    <option value="0" selected="selected">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                </select>
+                            </div><div class="form-item right">
+                                <label for="j_item_hotel_child">Child:</label>
+                                <select id="j_item_hotel_child" name="hotel_child">
+                                    <option value="0" selected="selected">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                </select>
+                            </div>
+                            <div class="form-item left">
+                                <label for="j_item_room">Room:</label>
+                                <select id="j_item_room" name="room">
+                                    <option value="0" selected="selected">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                </select>
+                            </div><div class="form-item right">
+                                <label for="j_item_add_room">Add Room:</label>
+                                <select id="j_item_add_room" name="add_room">
+                                    <option value="0" selected="selected">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                </select>
+                            </div>
+                            <div class="button-container">
+                                <input type="submit" value="SEARCH" />
+                            </div>
+                        </form>
+                    </div>
+                </li>
+                <li class="to-jump-link" href="/cruises" target="_blank">
+                    <span>Cruises</span>
+                </li>
+                <li class="to-jump-link" href="/bundles" target="_blank">
+                    <span>Bundles</span>
+                </li>
+                <li class="to-jump-link current" href="/itinerary" target="_self">
+                    <span>Itinerary</span>
+                </li>
+            </ul>
+        </div>
+        <img src="../common/images/logo.png" class="logo" />
+        <div class="login">
+            <!-- <a id="j_register" href="#">
+                <img src="../common/images/icon_user.png" />
+                <span>Create an Account</span>
+            </a> -->
+            <a id="j_login" class="has-float-panel" href="javascript: void( 0 )" user-data-type="login">
+                <img src="../common/images/icon_login.png" />
+                <span>Log In</span>
+                <div class="float-panel login">
+                    <form id="j_login_form" action="www.ternbooking.com/liAPI" method="post" autocomplete="off">
+                        <div class="form-item line">
+                            <label for="j_item_username">Email</label>
+                            <input id="j_item_username" name="Email" type="text" placeholder="Type your Email" required />
+                        </div>
+                        <div class="form-item line">
+                            <label for="j_item_password">Password</label>
+                            <input id="j_item_password" name="passwd" type="text" placeholder="Type your password" required />
+                        </div>
+                        <div class="button-container">
+                            <input type="submit" value="SIGN IN" />
+                        </div>
+                    </form>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div id="j_content">
+        <form id="j_hidden_query_form" action="" method="post">
+            <input id="j_hidden_panel" name="panel" type="hidden" value="flights" />
+
+            <input id="j_hidden_page_size" name="pageSize" type="hidden" value="4" />
+        </form>
+        <div class="build-tip-container">
+            <img class="left-img" src="./images/icon_map.png" />
+            <span>Build My Itinerary</span>
+            <img class="right-img" src="./images/icon_map.png" />
+        </div>
+        <div class="data-list-outer-container">
+            <p class="tip">Select from your favorites list of hotels, cruises, and flights to build an itinerary.</p>
+            <img class="tip-img" src="../common/images/icon_heart_red.png" />
+            <div class="tabs-panel-container">
+                <ul class="tabs-nav">
+                    <li class="tab-hotels">Hotels</li><li class="tab-flights">Flights</li><li class="tab-cruises">Cruises</li>
+                </ul>
+                <div class="page-container">
+                    <i class="prev"></i>
+                    <i class="next"></i>
+                </div>
+                <ol class="panel-container">
+                    <li class="for-hotels panel">
+                        <ul>
+                            <!-- each hotels list begin -->
+                            <li>
+                                <img class="show-image" src="./images/hotel_03.png" /><div class="center-info">
+                                    <p>
+                                        <span>Miami, Florida</span>
+                                        <b>$180</b>
+                                        <span class="for-date-span">6/15 - 6/16</span>
+                                    </p>
+                                    <div class="">
+                                        <div class="left">
+                                            <b>7:00a</b>
+                                            <span>EWR</span>
+                                        </div>
+                                        <div class="center">
+                                            <i class="icon-hotels"></i>
+                                            <div class="like-hr"></div>
+                                            <span>Nonstop</span>
+                                        </div>
+                                        <div class="right">
+                                            <b>1:00p</b>
+                                            <span>EWR</span>
+                                        </div>
+                                    </div>
+                                </div><a class="add" href="#" target="_blank">
+                                    <i></i>
+                                    <span>Add<br />to Itinernay</span>
+                                </a>
+                            </li>
+                            <!-- each hotels list end -->
+                            <li>
+                                <img class="show-image" src="./images/hotel_04.png" /><div class="center-info">
+                                <p>
+                                    <span>Miami, Florida</span>
+                                    <b>$180</b>
+                                    <span class="for-date-span">6/15 - 6/16</span>
+                                </p>
+                                <div class="">
+                                    <div class="left">
+                                        <b>7:00a</b>
+                                        <span>EWR</span>
+                                    </div>
+                                    <div class="center">
+                                        <i class="icon-hotels"></i>
+                                        <div class="like-hr"></div>
+                                        <span>Nonstop</span>
+                                    </div>
+                                    <div class="right">
+                                        <b>1:00p</b>
+                                        <span>EWR</span>
+                                    </div>
+                                </div>
+                                </div><a class="added">
+                                    <i></i>
+                                    <span>Added</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="for-flights panel">
+                        <ul>
+                            <!-- each flights list begin -->
+                            <li>
+                                <img class="show-image" src="./images/img_01.png" /><div class="center-info">
+                                <p>
+                                    <span>Miami, Florida</span>
+                                    <b>$180</b>
+                                    <span class="for-date-span">6/15 - 6/16</span>
+                                </p>
+                                <div class="">
+                                    <div class="left">
+                                        <b>7:00a</b>
+                                        <span>EWR</span>
+                                    </div>
+                                    <div class="center">
+                                        <i class="icon-plane"></i>
+                                        <div class="like-hr"></div>
+                                        <span>Nonstop</span>
+                                    </div>
+                                    <div class="right">
+                                        <b>1:00p</b>
+                                        <span>EWR</span>
+                                    </div>
+                                </div>
+                            </div><a class="add" href="#" target="_blank">
+                                <i></i>
+                                <span>Add<br />to Itinernay</span>
+                            </a>
+                            </li>
+                            <!-- each flights list end -->
+                            <li>
+                                <img class="show-image" src="./images/img_02.png" /><div class="center-info">
+                                <p>
+                                    <span>Miami, Florida</span>
+                                    <b>$180</b>
+                                    <span class="for-date-span">6/15 - 6/16</span>
+                                </p>
+                                <div class="">
+                                    <div class="left">
+                                        <b>7:00a</b>
+                                        <span>EWR</span>
+                                    </div>
+                                    <div class="center">
+                                        <i class="icon-plane"></i>
+                                        <div class="like-hr"></div>
+                                        <span>Nonstop</span>
+                                    </div>
+                                    <div class="right">
+                                        <b>1:00p</b>
+                                        <span>EWR</span>
+                                    </div>
+                                </div>
+                                </div><a class="added">
+                                    <i></i>
+                                    <span>Added</span>
+                                </a>
+                            </li>
+                            <li>
+                                <img class="show-image" src="./images/img_02.png" /><div class="center-info">
+                                <p>
+                                    <span>Miami, Florida</span>
+                                    <b>$180</b>
+                                    <span class="for-date-span">6/15 - 6/16</span>
+                                </p>
+                                <div class="">
+                                    <div class="left">
+                                        <b>7:00a</b>
+                                        <span>EWR</span>
+                                    </div>
+                                    <div class="center">
+                                        <i class="icon-plane"></i>
+                                        <div class="like-hr"></div>
+                                        <span>Nonstop</span>
+                                    </div>
+                                    <div class="right">
+                                        <b>1:00p</b>
+                                        <span>EWR</span>
+                                    </div>
+                                </div>
+                                </div><a class="added">
+                                    <i></i>
+                                    <span>Added</span>
+                                </a>
+                            </li>
+                            <li>
+                                <img class="show-image" src="./images/img_02.png" /><div class="center-info">
+                                <p>
+                                    <span>Miami, Florida</span>
+                                    <b>$180</b>
+                                    <span class="for-date-span">6/15 - 6/16</span>
+                                </p>
+                                <div class="">
+                                    <div class="left">
+                                        <b>7:00a</b>
+                                        <span>EWR</span>
+                                    </div>
+                                    <div class="center">
+                                        <i class="icon-plane"></i>
+                                        <div class="like-hr"></div>
+                                        <span>Nonstop</span>
+                                    </div>
+                                    <div class="right">
+                                        <b>1:00p</b>
+                                        <span>EWR</span>
+                                    </div>
+                                </div>
+                                </div><a class="added">
+                                    <i></i>
+                                    <span>Added</span>
+                                </a>
+                            </li>
+                            <li>
+                                <img class="show-image" src="./images/img_02.png" /><div class="center-info">
+                                <p>
+                                    <span>Miami, Florida</span>
+                                    <b>$180</b>
+                                    <span class="for-date-span">6/15 - 6/16</span>
+                                </p>
+                                <div class="">
+                                    <div class="left">
+                                        <b>7:00a</b>
+                                        <span>EWR</span>
+                                    </div>
+                                    <div class="center">
+                                        <i class="icon-plane"></i>
+                                        <div class="like-hr"></div>
+                                        <span>Nonstop</span>
+                                    </div>
+                                    <div class="right">
+                                        <b>1:00p</b>
+                                        <span>EWR</span>
+                                    </div>
+                                </div>
+                                </div><a class="added">
+                                    <i></i>
+                                    <span>Added</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="for-cruises panel">
+                        <ul>
+                            <!-- each cruises list begin -->
+                            <li>
+                                <img class="show-image" src="./images/hotel_01.png" /><div class="center-info">
+                                <p>
+                                    <span>Miami, Florida</span>
+                                    <b>$180</b>
+                                    <span class="for-date-span">6/15 - 6/16</span>
+                                </p>
+                                <div class="">
+                                    <div class="left">
+                                        <b>7:00a</b>
+                                        <span>EWR</span>
+                                    </div>
+                                    <div class="center">
+                                        <i class="icon-hotels"></i>
+                                        <div class="like-hr"></div>
+                                        <span>Nonstop</span>
+                                    </div>
+                                    <div class="right">
+                                        <b>1:00p</b>
+                                        <span>EWR</span>
+                                    </div>
+                                </div>
+                                </div><a class="add" href="#" target="_blank">
+                                    <i></i>
+                                    <span>Add<br />to Itinernay</span>
+                                </a>
+                            </li>
+                            <!-- each cruises list end -->
+                            <li>
+                                <img class="show-image" src="./images/hotel_02.png" /><div class="center-info">
+                                <p>
+                                    <span>Miami, Florida</span>
+                                    <b>$180</b>
+                                    <span class="for-date-span">6/15 - 6/16</span>
+                                </p>
+                                <div class="">
+                                    <div class="left">
+                                        <b>7:00a</b>
+                                        <span>EWR</span>
+                                    </div>
+                                    <div class="center">
+                                        <i class="icon-hotels"></i>
+                                        <div class="like-hr"></div>
+                                        <span>Nonstop</span>
+                                    </div>
+                                    <div class="right">
+                                        <b>1:00p</b>
+                                        <span>EWR</span>
+                                    </div>
+                                </div>
+                                </div><a class="added">
+                                    <i></i>
+                                    <span>Added</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <div class="new-itinerary-container">
+            <div class="top-container">
+                <span>My Itinerary, 6/15 - 7/20</span>
+                <b>Total cost: $360</b>
+                <a href="#" target="_blank">
+                    <img src="../common/images/icon_add.png">
+                    <span>New</span>
+                </a>
+            </div>
+            <div class="data-show-container">
+                <div class="begin">
+                    <div class="left">
+                        <img src="../common/images/icon_house.png" />
+                        <span>EWR</span>
+                    </div>
+                    <div class="right">
+                        <img src="./images/line_begin.png" />
+                    </div>
+                </div><ul class="process">
+                    <li class="down" style="left: 0;">
+                        <img class="line" src="./images/line_down.png" />
+                        <div class="float-message-panel">
+                            <img src="../common/images/icon_plane.png" />
+                            <span class="title">Boston, MA</span>
+                            <span class="time">2:00p - 1:00a</span>
+                            <span class="data">6/17</span>
+                        </div>
+                    </li><li class="up" style="left: -6px;">
+                        <img class="line" src="./images/line_up.png" />
+                        <div class="float-message-panel">
+                            <img src="../common/images/icon_plane.png" />
+                            <span class="title">Boston, MA</span>
+                            <span class="time">2:00p - 1:00a</span>
+                            <span class="data">6/17</span>
+                        </div>
+                    </li><li class="down" style="left: -12px;">
+                        <img class="line" src="./images/line_down.png" />
+                        <div class="float-message-panel">
+                            <img src="../common/images/icon_plane.png" />
+                            <span class="title">Boston, MA</span>
+                            <span class="time">2:00p - 1:00a</span>
+                            <span class="data">6/17</span>
+                        </div>
+                    </li><li class="up" style="left: -18px;">
+                        <img class="line" src="./images/line_up.png" />
+                        <div class="float-message-panel">
+                            <img src="../common/images/icon_plane.png" />
+                            <span class="title">Boston, MA</span>
+                            <span class="time">2:00p - 1:00a</span>
+                            <span class="data">6/17</span>
+                        </div>
+                    </li>
+                </ul><div class="end down" style="left: -24px;">
+                    <img src="./images/line_down.png" />
+                    <span>Keep going, you're doing great!</span>
+                </div>
+            </div>
+            <div class="bottom-container">
+                <a href="#" >Finished</a>
+            </div>
+        </div>
+    </div>
+    <div id="j_footer">
+        <p class="left">
+            <a href="#" target="_blank">Contact Us</a>
+            <a href="#" target="_blank">Help</a>
+        </p>
+        <p class="right">
+            <span>Copyright TernBooking 2017</span>
+        </p>
+    </div>
+</body>
+</html>

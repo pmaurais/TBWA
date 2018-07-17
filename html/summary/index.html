@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ternbooking</title>
+
+    <link type="text/css" rel="stylesheet" href="./style/index.css">
+    <link type="text/css" rel="stylesheet" href="../common/javascript/lib/jquery-ui-1.12.1.custom/jquery-ui.min.css">
+    <script type="text/javascript" src="../common/javascript/lib/jQuery/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="../common/javascript/lib/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../common/javascript/lib/jQueryValidate/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="../common/javascript/common.js"></script>
+    <script type="text/javascript" src="./javascript/index.js"></script>
+</head>
+<body>
+    <div id="j_header">
+        <div class="nav">
+            <ul>
+                <li class="has-float-panel" user-data-type="flights">
+                    <span>Flights</span>
+                    <div class="float-panel flights">
+                        <form id="j_flights_form" action="www.ternbooking.com/flights" method="post" autocomplete="off">
+                            <div class="form-item left">
+                                <label for="j_item_from">Flights from:</label>
+                                <input id="j_item_from" name="from" type="text" placeholder="City or Airport" required />
+                            </div><div class="form-item right">
+                                <label for="j_item_to">To:</label>
+                                <input id="j_item_to" name="to" type="text" placeholder="City or Airport" required />
+                            </div>
+                            <div class="form-item left">
+                                <label for="j_item_departing">Departing:</label>
+                                <input id="j_item_departing" name="departing" class="show-for-date" type="text" placeholder="Choose Date" />
+                                <img src="../common/images/icon_date.png"/>
+                            </div><div class="form-item right">
+                                <label for="j_item_returning">Returning:</label>
+                                <input id="j_item_returning" name="returning" class="show-for-date" type="text" placeholder="Choose Date" />
+                                <img src="../common/images/icon_date.png"/>
+                            </div>
+                            <div class="form-item left">
+                                <label for="j_item_flights_adult">Adult:</label>
+                                <select id="j_item_flights_adult" name="flights_adult">
+                                    <option value="0" selected="selected">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                </select>
+                            </div><div class="form-item right">
+                                <label for="j_item_flights_child">Child:</label>
+                                <select id="j_item_flights_child" name="flights_child">
+                                    <option value="0" selected="selected">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                </select>
+                            </div>
+                            <div class="button-container">
+                                <input type="submit" value="SEARCH" />
+                            </div>
+                        </form>
+                    </div>
+                </li>
+                <li class="has-float-panel" user-data-type="hotels">
+                    <span>Hotels</span>
+                    <div class="float-panel hotels">
+                        <form id="j_hotels_form" action="www.ternbooking.com/hotels" method="post" autocomplete="off">
+                            <div class="form-item line">
+                                <label for="j_item_hotel">City, Hotel or Area:</label>
+                                <input id="j_item_hotel" name="hotel" type="text" placeholder="City, Hotel or Area" required />
+                            </div>
+                            <div class="form-item left">
+                                <label for="j_item_check_in">Check-in:</label>
+                                <input id="j_item_check_in" name="check_in" class="show-for-date" type="text" placeholder="Choose Date" />
+                                <img src="../common/images/icon_date.png"/>
+                            </div><div class="form-item right">
+                                <label for="j_item_check_out">check-out:</label>
+                                <input id="j_item_check_out" name="check_out" class="show-for-date" type="text" placeholder="Choose Date" />
+                                <img src="../common/images/icon_date.png"/>
+                            </div>
+                            <div class="form-item left">
+                                <label for="j_item_hotel_adult">Adult:</label>
+                                <select id="j_item_hotel_adult" name="hotel_adult">
+                                    <option value="0" selected="selected">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                </select>
+                            </div><div class="form-item right">
+                                <label for="j_item_hotel_child">Child:</label>
+                                <select id="j_item_hotel_child" name="hotel_child">
+                                    <option value="0" selected="selected">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                </select>
+                            </div>
+                            <div class="form-item left">
+                                <label for="j_item_room">Room:</label>
+                                <select id="j_item_room" name="room">
+                                    <option value="0" selected="selected">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                </select>
+                            </div><div class="form-item right">
+                                <label for="j_item_add_room">Add Room:</label>
+                                <select id="j_item_add_room" name="add_room">
+                                    <option value="0" selected="selected">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                </select>
+                            </div>
+                            <div class="button-container">
+                                <input type="submit" value="SEARCH" />
+                            </div>
+                        </form>
+                    </div>
+                </li>
+                <li class="to-jump-link" href="/cruises" target="_blank">
+                    <span>Cruises</span>
+                </li>
+                <li class="to-jump-link" href="/bundles" target="_blank">
+                    <span>Bundles</span>
+                </li>
+                <li class="to-jump-link" href="/itinerary" target="_self">
+                    <span>Itinerary</span>
+                </li>
+            </ul>
+        </div>
+        <img src="../common/images/logo.png" class="logo" />
+        <div class="login">
+            <!-- <a id="j_register" href="#">
+                <img src="../common/images/icon_user.png" />
+                <span>Create an Account</span>
+            </a> -->
+            <a id="j_login" class="has-float-panel" href="javascript: void( 0 )" user-data-type="login">
+                <img src="../common/images/icon_login.png" />
+                <span>Log In</span>
+                <div class="float-panel login">
+                    <form id="j_login_form" action="www.ternbooking.com/liAPI" method="post" autocomplete="off">
+                        <div class="form-item line">
+                            <label for="j_item_username">Email</label>
+                            <input id="j_item_username" name="Email" type="text" placeholder="Type your Email" required />
+                        </div>
+                        <div class="form-item line">
+                            <label for="j_item_password">Password</label>
+                            <input id="j_item_password" name="passwd" type="text" placeholder="Type your password" required />
+                        </div>
+                        <div class="button-container">
+                            <input type="submit" value="SIGN IN" />
+                        </div>
+                    </form>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div id="j_content">
+        <form id="j_hidden_query_form" action="" method="post">
+            <input id="j_hidden_price" name="price" type="hidden" value="[ 499, 799, 1199, 3000 ]" />
+        </form>
+        <div class="banner-container">
+            <img src="./images/img_plane.png" />
+            <span>Trip Summary</span>
+        </div>
+        <div class="info-container flight">
+            <div class="title-container">
+                <span>Flight : ORD to CUN</span>
+                <a href="#" target="_blank">Edit Flight</a>
+            </div>
+            <div class="content-container">
+                <div class="content-left">
+                    <img src="./images/take_off.png" />
+                    <p class="date">Depart : Monday 28<sup>th</sup> May 2018</p>
+                    <div class="detail-container">
+                        <div class="left">
+                            <p>01:30</p>
+                            <p>ORD</p>
+                        </div>
+                        <div class="center">
+                            <span>5hr 31min</span>
+                            <img src="../common/images/long-arrow-right.png" />
+                            <span>Flight : 123456789</span>
+                        </div>
+                        <div class="right">
+                            <p>07:15</p>
+                            <p>CUN</p>
+                        </div>
+                    </div>
+                    <div class="economy">
+                        Economy Class
+                    </div>
+                </div>
+                <div class="content-right">
+                    <img src="./images/landing.png" />
+                    <p class="date">Return : Wednesday 6<sup>th</sup> June 2018</p>
+                    <div class="detail-container">
+                        <div class="left">
+                            <p>01:30</p>
+                            <p>ORD</p>
+                        </div>
+                        <div class="center">
+                            <span>5hr 31min</span>
+                            <img src="../common/images/long-arrow-right.png" />
+                            <span>Flight : 123456789</span>
+                        </div>
+                        <div class="right">
+                            <p>07:15</p>
+                            <p>CUN</p>
+                        </div>
+                    </div>
+                    <div class="economy">
+                        Economy Class
+                    </div>
+                </div>
+                <div class="content-bottom">
+                    <b>Karen West : 12345678 | George West : 12345678</b>
+                    <a href="#" target="_blank">BOOK NOW</a>
+                </div>
+            </div>
+        </div>
+        <div class="info-container hotel">
+            <div class="title-container">
+                <span>Hotel : New World Hotel, New York, NY</span>
+                <a href="#" target="_blank">Edit Hotel</a>
+            </div>
+            <div class="content-container">
+                <div class="room-container">
+                    <img class="room-pic" src="./images/home_pic.png" />
+                    <p>Room, 1 Queen Bed (Petite)</p>
+                    <span>290 square feet | 1 King Bed | Sleeps 2 guests</span>
+                </div>
+                <div class="info-right-container">
+                    <ul>
+                        <li>
+                            <b>Check-in</b>
+                            <span>06/06/2018</span>
+                        </li>
+                        <li>
+                            <b>Check-out</b>
+                            <span>07/06/2018</span>
+                        </li>
+                        <li>
+                            <b>Rooms</b>
+                            <span>01</span>
+                        </li>
+                        <li>
+                            <b>Adults</b>
+                            <span>02</span>
+                        </li>
+                        <li class="last">
+                            <b>Children</b>
+                            <span>00</span>
+                        </li>
+                    </ul>
+                    <ol>
+                        <li>
+                            <img src="./images/tick.png" />
+                            <b>Free Cancellation</b>
+                            <span>(until 5<sup>th</sup> June 2018)</span>
+                        </li>
+                        <li>
+                            <img src="./images/tick.png" />
+                            <b>Reserve now, pay when you stay</b>
+                        </li>
+                        <li>
+                            <img src="./images/wifi.png" />
+                            <b>Free Internet</b>
+                        </li>
+                        <li>
+                            <img src="./images/tick.png" />
+                            <b>No Expedia booking fees</b>
+                        </li>
+                    </ol>
+                    <div class="button-container">
+                        <p>We have 3 rooms left</p>
+                        <a href="#" target="_blank">BOOK NOW</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="j_footer">
+        <p class="left">
+            <a href="#" target="_blank">Contact Us</a>
+            <a href="#" target="_blank">Help</a>
+        </p>
+        <p class="right">
+            <span>Copyright Tern Booking 2017</span>
+        </p>
+    </div>
+</body>
+</html>

@@ -1,8 +1,9 @@
 import re
 import numpy as np
 import copy
+import io
 
-inPutFile = open('ToParse1.txt')    # I read a txt as an input directly, you could define your own input
+#inPutFile = open('ToParse1.txt')    # I read a txt as an input directly, you could define your own input
 
 
 def sort_input(inpt):   # This function sort out all desired information and store them inside of 3 lists
@@ -212,14 +213,16 @@ def filter_and_output(outboundlist, pricelist, refundablelist,
 
         display = display[::-1]
 
-    print(display)
+    #print(display)
     return display
 
 
 # Code Executions:
-outboundslists, pricelists, refundlists = sort_input(inPutFile)
-filter_and_output(outboundslists, pricelists, refundlists,
-                  userinptrefundable='true', userinptairline='O2', userinptdptimebound1=-1,
-                  userinptdptimebound2=-1, userinptarrtimebound1=13, userinptarrtimebound2=20,
-                  userinptprice='htl')
+def run(input):
+    input = io.StringIO(input)
+    outboundslists, pricelists, refundlists = sort_input(input)
+    a=filter_and_output(outboundslists, pricelists, refundlists)
+    return(a)
+
+
 

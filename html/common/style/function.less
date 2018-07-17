@@ -1,0 +1,87 @@
+//引入公共样式参数
+@import "./parameter";
+
+//元素100%宽度并使行内元素及内容居中
+.max_center(){
+  width: 100%;
+  text-align: center;
+}
+
+//元素水平居中
+.center(){
+  margin: auto auto;
+}
+
+//无任何间距
+.full_size(){
+  margin: 0;
+  padding: 0;
+}
+
+//设置高度和行高 @value为传入参数：例如要设置50px的高度，并垂直居中，则应在调用处使用 .height_middle( 50px );
+.height_middle( @value ){
+  height: @value;
+  line-height: @value;
+}
+
+//元素透明 @value为传入参数：例如要设置50%的透明度，则应在调用处使用 .opacity( 50 );
+.opacity( @value ){
+  opacity: @value / 100;
+  filter: alpha( opacity=@value );
+}
+
+//块级元素同行样式，兼容IE7
+.inline-block(){
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+
+//默认字体
+.default_font(){
+  font-family: @default_font_family;
+  font-size: @default_font_size;
+  color: @default_font_color;
+}
+
+//table紧凑样式
+.table_compact(){
+  border: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+
+  th, td, tfoot{
+    margin: 0;
+    padding: 0;
+  }
+}
+
+//自动换行
+.auto_change_line(){
+  white-space: normal;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+//强制不换行
+.no_change_line(){
+  white-space: nowrap;
+  word-wrap: normal;
+  word-break: normal;
+}
+
+//CSS3过渡动画
+.animate_transition( @property, @duration ){
+  transition: @property @duration;
+  -moz-transition: @property @duration;	/* Firefox 4 */
+  -webkit-transition: @property @duration;	/* Safari 和 Chrome */
+  -o-transition: @property @duration;	/* Opera */
+}
+
+//不能被选择
+.no_select(){
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

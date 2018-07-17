@@ -1,8 +1,7 @@
 import numpy as np
 import json
+import io
 
-with open('hotel.json') as file:
-    data = json.loads(file.read())
 
 
 def info_fetch_hotel(inpt):
@@ -58,9 +57,13 @@ def hotel_sort(Data_ARR, userinptprice='lth'):
     if userinptprice == 'htl':
         display = display[::-1]
 
-    print(display)
     return display
 
 
-arr = info_fetch_hotel(data)
-hotel_sort(arr, userinptprice='htl')
+def run(data):
+    data = io.StringIO(data)
+    data = json.loads(data.read())
+    arr = info_fetch_hotel(data)
+    a = hotel_sort(arr, userinptprice='lth')
+    return(a)
+

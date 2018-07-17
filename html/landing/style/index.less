@@ -1,0 +1,347 @@
+@import "../../common/style/common";
+
+body{
+  background: url( "../images/index_bg.jpg" );
+  filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
+  -moz-background-size: 100% 100%;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  .no_select();
+}
+
+#j_header{
+  width: 100%;
+  min-width: @page-width;
+  text-align: center;
+  background-color: @light-gray;
+  position: absolute;
+  top: 0;
+  z-index: 3;
+
+  .has-float-panel{
+    .float-panel{
+      display: none;
+      position: absolute;
+      cursor: default;
+      padding: 35px;
+      background-color: @light-gray;
+      top: 146px;
+      border-top: 2px solid @gray;
+      border-bottom: 3px solid @main-color;
+      .auto_change_line();
+
+      .form-item{
+        width: 155px;
+        height: 106px;
+        text-align: left;
+        position: relative;
+        .inline-block();
+
+        label{
+          display: block;
+          font-size: 15px;
+          text-align: left;
+          padding-bottom: 14px;
+
+          &.error{
+            font-size: 13px;
+            color: orangered;
+            padding: 0;
+            margin: 4px 0 0 2px;
+            position: absolute;
+            text-align: right;
+            width: 100%;
+          }
+        }
+
+        input{
+
+        }
+
+        img{
+          position: absolute;
+          top: 46px;
+          left: 130px;
+        }
+
+        &.left{
+          margin-right: 20px;
+        }
+
+        &.right{
+          margin-left: 20px;
+        }
+
+        &.line{
+          width: 350px;
+
+          input{
+            width: 310px;
+          }
+        }
+      }
+
+      .button-container{
+        margin-top: 10px;
+
+        input[ type="submit" ]{
+          border: none;
+          border-top: 2px solid @sub-color;
+          background-color: @main-color;
+          color: white;
+          width: 350px;
+          padding: 18px 0;
+          font-weight: bold;
+          cursor: url( "../../common/images/pointer.png" ), pointer;
+          .animate_transition( all, 0.4s );
+
+          &:hover{
+            background-color: lighten( @main-color, 15% );
+          }
+        }
+      }
+
+      &.flights, &.hotels{
+        width: 350px;
+        left: 0;
+      }
+    }
+  }
+
+  .nav{
+    float: left;
+    position: absolute;
+    margin-left: 20px;
+
+    ul{
+      .no_change_line();
+      
+      li{
+        .inline-block();
+        font-size: 23px;
+        padding: 60px 15px 56px;
+        margin: 0 15px;
+        cursor: url( "../../common/images/pointer.png" ), pointer;
+        font-weight: bold;
+        border-bottom: 4px solid @light-gray;
+        position: relative;
+        .animate_transition( all, 0.4s );
+
+        span{
+          color: @main-color;
+          .animate_transition( all, 0.4s );
+        }
+
+        &:hover, &.open, &.current{
+          border-bottom-color: @sub-color;
+
+          span{
+            color: lighten( @main-color, 40% );
+          }
+        }
+      }
+    }
+  }
+
+  .logo{
+    margin: 8px 0 7px 100px;
+    position: relative;
+    z-index: 3;
+  }
+
+  .login{
+    float: right;
+    position: absolute;
+    top: 40px;
+    right: 30px;
+
+    a{
+      .inline-block();
+      margin: 0 10px;
+      background-color: @sub-color;
+      border-radius: 5px;
+      cursor: url( "../../common/images/pointer.png" ), pointer;
+      .animate_transition( all, 0.4s );
+
+      img{
+        vertical-align: middle;
+        border: none;
+      }
+
+      span{
+        vertical-align: middle;
+        color: white;
+        font-size: 24px;
+        margin-left: 15px;
+        font-weight: bold;
+      }
+
+      &:hover, &.open{
+        background-color: lighten( @sub-color, 10% );
+        box-shadow: 0 0 3px #999999;
+      }
+
+      &#j_register{
+        padding: 20px 30px 20px 20px;
+
+        img{
+          width: 28px;
+          height: 30px;
+        }
+      }
+
+      &#j_login{
+        padding: 20px 30px 20px 20px;
+        position: relative;
+
+        img{
+          width: 30px;
+          height: 26px;
+        }
+
+        .float-panel {
+          top: 106px;
+          right: 0;
+
+          label{
+            color: @default_font_color;
+
+            &.error{
+              color: orangered;
+              font-weight: bold;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+#j_content{
+  width: 100%;
+  min-width: @page-width;
+  min-height: 92px;
+  position: absolute;
+  top: 145px;
+  bottom: 105px;
+  text-align: center;
+  z-index: 1;
+
+  a{
+    .inline-block();
+    background-color: rgba( 0, 84, 160, 0.8 );
+    background-color: #0054A0\9;
+    border: 2px solid white;
+    border-radius: 5px;
+    cursor: url( "../../common/images/pointer.png" ), pointer;
+    padding: 24px 40px;
+    margin: 0 10px;
+    .animate_transition( all, 0.5s );
+
+    img{
+      vertical-align: middle;
+      border: none;
+      width: 33px;
+      height: 40px;
+    }
+
+    span{
+      vertical-align: middle;
+      color: white;
+      font-size: 24px;
+      margin-left: 15px;
+      font-weight: bold;
+    }
+
+    &:hover{
+      background-color: rgba( 0, 124, 237, 0.8 );
+      background-color: #007CED\9;
+    }
+
+    &#j_register{
+    }
+
+    &#j_login{
+    }
+  }
+}
+
+#j_footer{
+  width: 100%;
+  min-width: @page-width;
+  background-color: @main-color;
+  height: 105px;
+  line-height: 100px;
+  position: fixed;
+  bottom: 0;
+  letter-spacing: 1px;
+  z-index: 2;
+
+  p{
+    .inline-block();
+
+    a, span{
+      color: white;
+      font-size: 27px;
+    }
+
+    a{
+      margin-right: 50px;
+      .animate_transition( all, 0.3s );
+
+      &:hover{
+        color: @sub-color;
+      }
+    }
+
+    &.left{
+      float: left;
+      margin-left: 200px;
+    }
+
+    &.right{
+      float: right;
+      margin-right: 200px;
+    }
+  }
+}
+
+//firefox hack
+@-moz-document url-prefix(){
+  #j_header {
+    .has-float-panel {
+      .float-panel {
+        top: 147px;
+
+        .form-item {
+          img {
+            top: 48px;
+          }
+        }
+      }
+    }
+
+    .login{
+      a{
+        &#j_login{
+          .float-panel {
+            top: 107px;
+          }
+        }
+      }
+    }
+  }
+}
+
+//chrome hack
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  #j_header {
+    .nav {
+      ul {
+        li {
+          padding: 58px 15px 54px;
+        }
+      }
+    }
+  }
+}
