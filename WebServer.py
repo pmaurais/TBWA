@@ -12,7 +12,7 @@ from bs4 import BeautifulSoup, Tag
 import card
 import Sortand
 import hCard
-import filtandhotel
+import filghtandhotel
 import pickle
 
 
@@ -116,7 +116,7 @@ class WebApp(object):
                   params={'apikey': '9KjwdxYduRHXjyaC7HuGbZ9FrwvjvWLY', 'location': hotel, 'check_in': check_in,
                           'check_out': check_out})
 
-        data=filtandhotel.run(r.text)
+        data=filghtandhotel.run(r.text)
         html=""
         i=0
         cherrypy.session['Hotels']=data
